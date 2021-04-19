@@ -1,0 +1,134 @@
+package javabdd;
+
+import javax.swing.*;//import everything from javax.swing package
+import java.awt.*;
+import java.awt.event.ActionEvent;//is the event that accured
+import java.awt.event.ActionListener;//importing the class actionlistener form java.awt.event package
+//action listener is responsible of waiting for an action to accure such as something being clicked
+
+ class javabdd extends JFrame implements ActionListener {
+	 static window1 win1;
+	 static window2 win2;
+	 
+
+   
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	Container container = getContentPane();//giving a name to the contentpane wich is an object created bye the JRE
+    JLabel userLabel = new JLabel("USERNAME");//creating an object of JLabel class with the specified text wich is a component for placing a text in the container 
+    JLabel passwordLabel = new JLabel("PASSWORD");//same as the previous one
+    JTextField userTextField = new JTextField();//creating an object of JTextFild wich is a component that allows the editing of a single line text
+    JPasswordField passwordField = new JPasswordField();//same as the previous
+    static JButton loginButton = new JButton("LOGIN");//creating a button with the string login
+    static JButton resetButton = new JButton("RESET");//same as the previous
+    static JCheckBox showPassword = new JCheckBox("Show Password");
+    JLabel signin = new JLabel("Sign in");
+    
+
+//
+    javabdd() {
+        setLayoutManager();//calling the public method 
+        setLocationAndSize();
+        addComponentsToContainer();
+        addActionEvent();
+
+    }
+
+    public void setLayoutManager() {
+        container.setLayout(null);//no layout manager is assigned the component can be put at specific x,x coordinates
+    }
+
+    public void setLocationAndSize() {
+        userLabel.setBounds(50, 120, 150, 30);//first and second arguments are the x y coordinates for the top and left corner
+        passwordLabel.setBounds(50, 160, 150, 30);//the third is the width and the forth is the height of the component
+        userTextField.setBounds(150, 120, 300, 30);//setbounds is a method to set the position and size of the component manually
+        passwordField.setBounds(150, 160, 300, 30);
+        showPassword.setBounds(150, 190, 150, 30);
+        loginButton.setBounds(180, 250, 80, 30);
+        resetButton.setBounds(320, 250, 80, 30);
+        signin.setBounds(200,50
+        		,100,30);
+      
+
+
+    }
+
+    public void addComponentsToContainer() {
+        container.add(userLabel);
+        container.add(passwordLabel);//adding objects to the container
+        container.add(userTextField);
+        container.add(passwordField);
+        container.add(showPassword);
+        container.add(loginButton);
+        container.add(resetButton);
+        container.add(signin);
+    }
+ 
+    public void addActionEvent() {
+        loginButton.addActionListener(this);
+        resetButton.addActionListener(this);
+        showPassword.addActionListener(this);
+    }
+   
+
+
+    @SuppressWarnings("deprecation")
+	@Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == loginButton) {
+            String userText;
+            String pwdText;
+            userText = userTextField.getText();
+            pwdText = passwordField.getText();
+            if (userText.equalsIgnoreCase("mehtab") && pwdText.equalsIgnoreCase("12345")) {
+                JOptionPane.showMessageDialog(this, "Login Successful");//checking if the username and psd are right
+                final window1 win1=new window1();
+                win1.setVisible(true);
+                
+            }
+            else if (userText.equalsIgnoreCase("ali") && pwdText.equalsIgnoreCase("12345")) {
+                JOptionPane.showMessageDialog(this, "Login Successful");
+                final window2 win2=new window2();
+                win2.setVisible(true);
+                
+                
+                }
+            else {
+                JOptionPane.showMessageDialog(this, "Invalid Username or Password");
+            }
+
+        }
+        if (e.getSource() == resetButton) {
+            userTextField.setText("");
+            passwordField.setText("");
+        }
+        if (e.getSource() == showPassword) {
+            if (showPassword.isSelected()) {
+                passwordField.setEchoChar((char) 0);
+            } else {
+                passwordField.setEchoChar('*');
+            }
+
+
+        }
+    }
+ 
+
+    public static void main(String[] a) {
+        javabdd frame = new javabdd();//creating a frame 
+        frame.setTitle("Login Form");
+        frame.setVisible(true);
+        frame.setBounds(10, 10, 600, 400);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.getContentPane().setBackground(new Color(228,99,141));
+        showPassword.setBackground(new Color(228,99,141));
+        resetButton.setBackground(new Color(255,255,255));
+        loginButton.setBackground(new Color(255,255,255));
+       
+
+    }
+}
