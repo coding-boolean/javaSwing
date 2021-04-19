@@ -1,0 +1,99 @@
+package javabdd;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextArea;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class window1 extends JFrame {
+	static String user2;
+    static public window2 win2=new window2();
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					window1 frame = new window1();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public window1() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 466);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JTextArea display1 = new JTextArea();
+		display1.setBounds(28, 46, 362, 319);
+		contentPane.add(display1);
+		
+		JTextArea text1 = new JTextArea();
+		text1.setBounds(28, 376, 295, 40);
+		contentPane.add(text1);
+		
+		JButton send1 = new JButton("SEND");
+		send1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String s=text1.getText();
+				if(s.contentEquals("")) {
+					return;
+				}
+				display1.append("user2 :"+s+"\n");
+				
+				text1.setText("");
+				win2.sendText();
+				
+			}
+		});
+		send1.setBounds(335, 376, 89, 40);
+		contentPane.add(send1);
+		
+		JLabel label1 = new JLabel("New label");
+		label1.setBounds(28, 11, 118, 24);
+		contentPane.add(label1);
+		
+		JButton clear = new JButton("CLEAR");
+		clear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				text1.setText("");
+			}
+		});
+		clear.setBounds(335, 12, 89, 23);
+		contentPane.add(clear);
+	}
+	
+	public static void sendText(){ String s2=window2.text2.getText();
+	
+	  
+	  display1.append("user1 :"+s2+"\n");
+	  
+	 
+	  
+		
+	}
+	private static JTextArea display1;
+	public static JTextArea text1;
+	private JButton send1;
+	private JLabel leabel1;
+}
