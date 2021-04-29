@@ -1,0 +1,157 @@
+package gl_td;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class CoteAdmin extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_5;
+	private JTextField textField_6;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CoteAdmin frame = new CoteAdmin();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public CoteAdmin() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 554, 473);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(176, 196, 222));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Hi Admin !");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		lblNewLabel.setBounds(193, 34, 241, 72);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("module name :");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_1.setBounds(34, 144, 113, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Professor :");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_2.setBounds(34, 178, 128, 45);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("date :");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_3.setBounds(34, 234, 135, 21);
+		contentPane.add(lblNewLabel_3);
+		
+		textField = new JTextField();
+		textField.setBounds(134, 234, 154, 28);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(134, 139, 154, 28);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(134, 188, 154, 28);
+		contentPane.add(textField_2);
+		textField_2.setColumns(10);
+		
+		JLabel lblNewLabel_4 = new JLabel("hour :");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_4.setBounds(34, 279, 46, 14);
+		contentPane.add(lblNewLabel_4);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(134, 274, 154, 28);
+		contentPane.add(textField_3);
+		textField_3.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Delete");
+		btnNewButton.setBackground(new Color(255, 255, 255));
+		btnNewButton.setBounds(223, 364, 77, 34);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Add");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_1.setBackground(new Color(255, 255, 255));
+		btnNewButton_1.setBounds(122, 364, 77, 34);
+		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_5 = new JLabel("Promo :");
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_5.setBounds(333, 145, 60, 12);
+		contentPane.add(lblNewLabel_5);
+		
+		textField_4 = new JTextField();
+		textField_4.setBounds(403, 139, 111, 28);
+		contentPane.add(textField_4);
+		textField_4.setColumns(10);
+		
+		textField_5 = new JTextField();
+		textField_5.setBounds(403, 188, 111, 28);
+		contentPane.add(textField_5);
+		textField_5.setColumns(10);
+		
+		JLabel lblNewLabel_6 = new JLabel("Groupe:");
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_6.setBounds(333, 190, 60, 21);
+		contentPane.add(lblNewLabel_6);
+		
+		JButton btnNewButton_2 = new JButton("Display");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {Emploi emploi = new Emploi();
+			emploi.setVisible(true);
+			
+			}
+		});
+		btnNewButton_2.setBackground(new Color(255, 255, 255));
+		btnNewButton_2.setBounds(413, 235, 89, 34);
+		contentPane.add(btnNewButton_2);
+		
+		textField_6 = new JTextField();
+		textField_6.setBounds(134, 313, 154, 28);
+		contentPane.add(textField_6);
+		textField_6.setColumns(10);
+		
+		JLabel lblNewLabel_7 = new JLabel("Groupe :");
+		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_7.setBounds(34, 320, 77, 14);
+		contentPane.add(lblNewLabel_7);
+	}
+}
