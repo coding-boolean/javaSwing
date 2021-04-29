@@ -1,0 +1,81 @@
+package gl_td;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class APP_GL extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					APP_GL frame = new APP_GL();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public APP_GL() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 554, 473);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(176, 196, 222));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnNewButton = new JButton("Student");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {CoteEtudiant student = new CoteEtudiant(); student.setVisible(true);
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnNewButton.setBounds(78, 136, 158, 67);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Professor");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {CoteProf professor = new CoteProf();professor.setVisible(true);
+			}
+		});
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnNewButton_1.setBounds(261, 136, 166, 67);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Admin");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {CoteAdmin admin = new CoteAdmin();admin.setVisible(true);
+			}
+		});
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnNewButton_2.setBounds(167, 249, 166, 60);
+		contentPane.add(btnNewButton_2);
+		
+		JLabel lblNewLabel = new JLabel("You are a :");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		lblNewLabel.setBounds(195, 41, 232, 38);
+		contentPane.add(lblNewLabel);
+	}
+
+}
